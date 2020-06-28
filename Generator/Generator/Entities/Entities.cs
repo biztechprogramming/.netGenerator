@@ -22,7 +22,7 @@ namespace Generator.Entities
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+    #line 1 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class Entities : EntitiesBase
     {
@@ -35,68 +35,68 @@ namespace Generator.Entities
             this.Write(" \r\n");
             this.Write("using System;\r\n\r\nnamespace Entity\r\n{\r\n    public class ");
             
-            #line 30 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+            #line 30 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n\r\n");
             
-            #line 33 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+            #line 33 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
 for(int i=0;i<columnTypeList.Count;i++){
             
             #line default
             #line hidden
             
-            #line 34 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+            #line 34 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
 if(nullableList[i]=="Y"){
             
             #line default
             #line hidden
             this.Write("        public ");
             
-            #line 35 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+            #line 35 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetNullableType(columnTypeList[i],dataPrecision[i],dataScale[i])));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 35 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+            #line 35 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToPascalCase(columnNameList[i])));
             
             #line default
             #line hidden
             this.Write("{ get; set; }\r\n");
             
-            #line 36 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+            #line 36 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
 }else{
             
             #line default
             #line hidden
             this.Write("        public ");
             
-            #line 37 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+            #line 37 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetType(columnTypeList[i],dataPrecision[i],dataScale[i])));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 37 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+            #line 37 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ToPascalCase(columnNameList[i])));
             
             #line default
             #line hidden
             this.Write("{ get; set; }\r\n");
             
-            #line 38 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+            #line 38 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
 }
             
             #line default
             #line hidden
             
-            #line 39 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+            #line 39 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
 }
             
             #line default
@@ -105,7 +105,7 @@ if(nullableList[i]=="Y"){
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 41 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+        #line 41 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
 
 public string GetType(string dbType,string dataPrecision,string dataScale)
 {
@@ -189,7 +189,7 @@ public static string GetObjectName(string text)
         #line default
         #line hidden
         
-        #line 1 "C:\Workspaces\Generator\Generator\Entities\Entities.tt"
+        #line 1 "F:\Dev\automation\.netGenerator\Generator\Generator\Entities\Entities.tt"
 
 private string _tableNameField;
 

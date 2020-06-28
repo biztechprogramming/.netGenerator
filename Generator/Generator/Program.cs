@@ -12,20 +12,21 @@ namespace T4TemplateGenerator
     { 
         static void Main(string[] args)
         {
-            string tableName = "APP_REQUEST";
+            string tableName = "BT_APP_USER";
 
-            var solutionFolder = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\";
+            var solutionFolder = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\";
+			var outputFolder = "Output\\";
             string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ToString();
 
             #region File paths
-            string entityPath = solutionFolder + ConfigurationManager.AppSettings["EntityPath"];
-            string dalPath = solutionFolder + ConfigurationManager.AppSettings["DalPath"];
-            string servicePath = solutionFolder + ConfigurationManager.AppSettings["ServicePath"];
-            string validatorPath = solutionFolder + ConfigurationManager.AppSettings["ValidatorPath"];
-            string controllerPath = solutionFolder + ConfigurationManager.AppSettings["ControllerPath"];
-            string angularEntitiyPath = solutionFolder + ConfigurationManager.AppSettings["AngularEntitiyPath"];
-            string angularServicePath = solutionFolder + ConfigurationManager.AppSettings["AngularServicePath"];
-            string angularComponentPath = solutionFolder + ConfigurationManager.AppSettings["AngularComponentPath"];
+            string entityPath = Path.Combine(solutionFolder, outputFolder, ConfigurationManager.AppSettings["EntityPath"]);
+            string dalPath = Path.Combine(solutionFolder, outputFolder, ConfigurationManager.AppSettings["DalPath"]);
+            string servicePath = Path.Combine(solutionFolder, outputFolder, ConfigurationManager.AppSettings["ServicePath"]);
+            string validatorPath = Path.Combine(solutionFolder, outputFolder, ConfigurationManager.AppSettings["ValidatorPath"]);
+            string controllerPath = Path.Combine(solutionFolder, outputFolder, ConfigurationManager.AppSettings["ControllerPath"]);
+            string angularEntitiyPath = Path.Combine(solutionFolder, outputFolder, ConfigurationManager.AppSettings["AngularEntitiyPath"]);
+            string angularServicePath = Path.Combine(solutionFolder, outputFolder, ConfigurationManager.AppSettings["AngularServicePath"]);
+            string angularComponentPath = Path.Combine(solutionFolder, outputFolder, ConfigurationManager.AppSettings["AngularComponentPath"]);
             #endregion
 
             List<string> columnNameList = new List<string>();
@@ -38,7 +39,7 @@ namespace T4TemplateGenerator
             conn.Open();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT DATA_TYPE,COLUMN_NAME,NULLABLE,DATA_PRECISION,DATA_SCALE,DATA_LENGTH  FROM all_tab_cols WHERE table_name = '" + tableName + "'";
+            cmd.CommandText = "SELECT DATA_TYPE,COLUMN_NAME,NULLABLE,DATA_PRECISION,DATA_SCALE,DATA_LENGTH  FROM all_tab_cols WHERE table_name = '" + tableName + "' ORDER BY COLUMN_ID";
             cmd.CommandType = CommandType.Text;
             OracleDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
